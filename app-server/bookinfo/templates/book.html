@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+ 
+{% block container %}
+  <div class="top-pad">
+    <form
+        method="POST"
+        action="{{ url_for('auth.book') }}"
+        role="form">
+      {{ form.csrf_token }}
+      {{ form.bid }}
+      <div class="form-group">{{ form.title.label }}: {{ form.title() }}</div>
+      <div class="form-group">{{ form.author.label }}: {{ form.author() }}</div>
+      <div class="form-group">{{ form.genre.label }}: {{ form.genre() }}</div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+{% endblock %}

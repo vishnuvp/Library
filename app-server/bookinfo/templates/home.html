@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+ 
+{% block container %}
+  <h1>Book Info</h1>
+  {% if current_user.is_authenticated %}
+    <h3>Hey {{ current_user.username }}!!</h3>
+    <a href="{{ url_for('auth.logout') }}">Click here to logout</a>
+    <h4><u>Books list</u></h4>
+    <h3>
+    </h3>
+    
+    <ol>
+    	{%for i in current_user.books%} 
+    		<li><div><a href='{{i[3]}}'>{{i[0]}}</a></div>
+    			<div>Author: {{i[1]}}</div>
+    			<div>Genre: {%for g in i[2]%}<a href="#">{{g}}</a>, {%endfor%}</div>
+    		</li> 
+		{%endfor%} 
+    </ol>
+  {% else %}
+  Click here to <a href="{{ url_for('auth.login') }}">login with LDAP</a>
+  {% endif %}
+{% endblock %}

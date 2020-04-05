@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Global
+venv/
+__pycache__/
+bookinfo-app/mongo_data/
+bookinfo-app/app
+glauth/glauth64
+
+
